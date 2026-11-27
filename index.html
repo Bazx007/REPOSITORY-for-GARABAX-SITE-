@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Una galería para descubrir arte digital y sus historias.">
+  <title>Garabaxsite — Arte digital</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <!-- defer espera a que el HTML esté leído antes de ejecutar JavaScript. -->
+  <script src="js/app.js" defer></script>
+</head>
+
+<body class="pagina-galeria">
+  
+  <!-- Fondo decorativo: la capa negra cambia su opacidad al desplazarse. -->
+  <div class="fondo-pantalla" aria-hidden="true"></div>
+    
+</body>
+  
+  <header class="cabecera">
+    
+    <!-- Para animar tu logo, cambiá logo.svg por tu archivo logo.gif. -->
+    <a class="marca marca-logo" href="#inicio" aria-label="GARABAX-SIDE, inicio"> 
+      <div class="img-izq">
+      <img src="imagenes/logo.svg" alt="GARABAX-SIDE" width="120"><span aria-hidden="true">®</span>
+         <a class="marca" href="#inicio">GARABAX-site</a>
+         </div>
+    </a>
+  
+    <nav aria-label="Navegación principal">
+      
+      <a href="#inicio">El espacio</a>
+      <a href="#galeria">Explorar obras ↗</a>
+      
+    </nav>
+    
+
+    <!-- FUENTR1. --> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Redaction+50:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+
+  </header>
+  
+
+   
+
+
+
+  <main>
+
+    <element class="redactionregular">
+    <section id="inicio" class="introduccion">
+      <p class="etiqueta">UN ESPACIO PARA LA CREACIÓN DIGITAL</p>
+      <h1>Que te ha traido aqui a investigar. . <br>la <em>¿GARABAX-site?</em></h1>
+      </element>
+
+      <element class="redactionregular">
+      <div class="presentacion">
+        <p>Bienvenido a GARABAX-SITE, una pagina de arte digital. Descubrí los diferentes proyectos derivados que ofrece esta pagina, explorá diferentes estilos y conocé la historia detrás de cada creación. <em>   y recuerda. . . .</em> </p>
+        
+        <a class="boton" href="#galeria">Conocer la colección <span aria-hidden="true">↓</span></a>
+      </div>
+      </element>
+
+      <p><em>GARABAX-SITE espera tu contribucion.</em></p>
+    </section>
+
+
+    
+    <section id="galeria" class="galeria" aria-labelledby="titulo-galeria">
+      <element class="redactionregular">
+      <div class="titulo-seccion">
+        <div><p class="etiqueta">LA COLECCIÓN</p><h2 id="titulo-galeria">Universos por descubrir</h2></div>
+        <p>Selección de ejemplo · <span id="cantidad">0</span> obras</p>
+      </div>
+      
+      <!-- JavaScript agrega las tarjetas dentro de este contenedor. -->
+      <div id="tarjetas" class="tarjetas"></div>
+      <noscript><p>Activá JavaScript para visualizar las tarjetas de esta galería.</p></noscript>
+    </section>
+       </element>
+
+<!-- SEGUNDA SECCION -->
+
+<element class="redactionregular">
+<section
+  id="nueva-coleccion"
+  class="galeria"
+  aria-labelledby="titulo-nueva-coleccion"
+>
+  <div class="titulo-seccion">
+    <div>
+      <p class="etiqueta">PROYECTOS ASOCIADOS</p>
+      <h2 id="titulo-nueva-coleccion">Arte conceptual</h2>
+    </div>
+
+    <p>
+      Selección de obras ·
+      <span id="cantidad-personajes">0</span> obras
+    </p>
+  </div>
+
+  <!-- JavaScript insertará las nuevas tarjetas aquí -->
+  <div id="tarjetas-personajes" class="tarjetas"></div>
+        
+</section>
+
+
+</element>
+
+
+
+
+
+
+
+
+
+
+<!-- TERCERA colección -->
+ <element class="redactionregular">
+<section
+  id="tercera-coleccion"
+  class="galeria"
+  aria-labelledby="titulo-tercera-coleccion"
+>
+  <div class="titulo-seccion">
+    <div>
+      <p class="etiqueta">Apartado musical</p>
+      <h2 id="titulo-tercera-coleccion">ONDAS SONORAS VIBRANTES (musica)</h2>
+    </div>
+
+    <p>
+      Selección de obras ·
+      <span id="cantidad-musica">0</span> obras
+    </p>
+  </div>
+
+  <!-- JavaScript insertará las nuevas tarjetas aquí -->
+  <div id="tarjetas-musica" class="tarjetas"></div>
+</section>
+</element>
+
+<div class="caja">
+<figcaption>
+  
+  <!-- <h2>
+    <element class="zeyada">
+          <strong>¿Quien soy?</strong>
+    </element>
+  </h2>
+
+    </figcaption>
+<img src="../imagenes/persona2.svg" alt="Descripción de la imagen" width="575" height="515"> 
+</div>-->
+
+  </main>
+
+  
+<div class="caja">
+  <element class="zeyada">
+          <strong>¿Quien soy?</strong>
+    </element>
+  <div class="galeria-horizontal2">
+
+       <img src="../imagenes/persona2.svg" alt="ddes" width="675" height="615" style="width: 668px;"> 
+       <img src="../imagenes/testamento.svg" alt="ddes" width="575" height="22" style="width: 425px;">
+       
+  </div>
+</div>
+
+
+
+
+
+
+
+
+ <div class="caja">
+ <div class="galeria-horizontal2">
+
+       <img src="../imagenes/imagenes horizontes/edificios.svg" alt="" > 
+       <img src="../imagenes/imagenes horizontes/edificios.svg" alt="" > 
+       <img src="../imagenes/imagenes horizontes/edificios.svg" alt="" > 
+      
+</div>
+</div>
+
+
+
+
+
+  <footer><a class="marca" href="#inicio">GARABAX-site<span>®</span></a><p>De parte de un artista frustrado, Garabax-site.</p><a href="#inicio">Volver arriba ↑</a></footer>
+</body>
+</html>

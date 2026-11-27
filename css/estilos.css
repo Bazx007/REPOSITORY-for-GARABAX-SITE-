@@ -1,0 +1,634 @@
+/* VERSIÓN COMENTADA: se conservan todas las reglas, valores y su orden. */
+/* Los comentarios entre estos símbolos no cambian el aspecto de la página. */
+/* .nombre selecciona una clase; los espacios seleccionan descendientes; */
+/* las comas agrupan selectores; { } delimitan reglas y ; separa propiedades. */
+
+/* Variables globales reutilizadas mediante var(...). */
+:root {
+  --fondo: #11255c; /* Define el color de fondo general: un tono claro. */
+  --tinta: #dbe0e9; /* Define el color principal del texto: un tono oscuro. */
+  --acento: #08031f; /* Define el verde utilizado para destacar el botón. */
+  --linea: #d3d5ca; /* Define el color de las líneas divisorias. */
+}
+
+/* Todos los elementos de la página. */
+* {
+  box-sizing: border-box; /* Hace que el ancho y alto declarados incluyan el relleno y el borde; el margen queda fuera. */
+}
+
+/* Documento completo y comportamiento del desplazamiento. */
+html {
+  scroll-behavior: smooth; /* smooth suaviza los saltos a secciones; auto usa el desplazamiento habitual sin esa animación CSS. */
+}
+
+/* Estilos generales que heredan muchos elementos. */
+body {
+  margin: 0; /* Espacio exterior. Un valor: todos los lados; dos: vertical y horizontal; tres: arriba, horizontal y abajo. auto centra horizontalmente cuando el ancho está limitado. */
+  background: var(--fondo); /* Color de fondo; var(...) toma el valor de la variable indicada. */
+  color: var(--tinta); /* Color del texto. inherit toma el color del elemento padre; var(...) usa una variable. */
+  font-family: Arial, Helvetica, sans-serif; /* Familias tipográficas en orden de preferencia; se usa la primera disponible. */
+  line-height: 1.6; /* Altura de cada línea como múltiplo del tamaño de letra, al no tener unidad. */
+}
+
+/* Todos los enlaces. */
+a {
+  color: inherit; /* Color del texto. inherit toma el color del elemento padre; var(...) usa una variable. */
+}
+
+/* Enlaces cuando el navegador muestra el foco, por ejemplo al navegar con Tab. */
+a:focus-visible {
+  outline: 3px solid #596f22; /* Dibuja un contorno de foco de 3px, continuo y verde, sin ocupar espacio en la distribución. */
+  outline-offset: 5px; /* Separa el contorno de foco del borde del elemento. */
+}
+
+/* Cabecera, contenido principal y pie de página. */
+.cabecera, main, footer {
+  width: min(1180px, 90%); /* Ancho del elemento. min(1180px, 90%) elige el menor entre 1180px y el 90% del contenedor; 100% ocupa su ancho disponible. */
+  margin: auto; /* Espacio exterior. Un valor: todos los lados; dos: vertical y horizontal; tres: arriba, horizontal y abajo. auto centra horizontalmente cuando el ancho está limitado. */
+}
+
+/* Franja superior con la marca y la navegación. */
+.cabecera {
+  min-height: 100px; /* Altura mínima; permite que el elemento crezca si su contenido lo necesita. */
+  display: flex; /* flex organiza los hijos con Flexbox; grid crea una cuadrícula; block ocupa una caja de bloque; inline-block permite una caja dentro del flujo en línea. */
+  align-items: center; /* Alineación en el eje transversal de Flexbox: center centra; end alinea al extremo final; flex-start alinea al inicio. Con dirección row el eje es vertical; con column es horizontal. */
+  justify-content: space-between; /* Distribuye los hijos en el eje principal; space-between coloca el primero y último en los extremos y reparte el espacio restante entre ellos. */
+  border-bottom: 1px solid var(--linea); /* Línea divisoria inferior de 1px, continua, con el color de --linea. */
+  gap: 24px; /* Separación entre los elementos de un contenedor flex o grid. */
+}
+
+/* Texto o enlace utilizado como marca o logo. */
+.marca {
+  font-size: 34px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  font-weight: 900; /* Grosor de letra: normal suele equivaler a 400, 500 es intermedio, bold suele equivaler a 700 y 900 es muy grueso; depende de las variantes disponibles. */
+  letter-spacing: -2px; /* Separación adicional entre letras: valores negativos las acercan; positivos las separan; 0 no agrega separación. */
+  text-decoration: none; /* none elimina la decoración habitual del enlace; underline muestra un subrayado. */
+}
+
+/* Símbolo pequeño dentro de la marca. */
+.marca span {
+  font-size: 14px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  vertical-align: top; /* Alinea la parte superior del símbolo con la parte superior de su caja de línea. */
+  letter-spacing: 0; /* Separación adicional entre letras: valores negativos las acercan; positivos las separan; 0 no agrega separación. */
+}
+
+
+.marca2 {
+  font-size: 34px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  font-weight: 900; /* Grosor de letra: normal suele equivaler a 400, 500 es intermedio, bold suele equivaler a 700 y 900 es muy grueso; depende de las variantes disponibles. */
+  letter-spacing: -2px; /* Separación adicional entre letras: valores negativos las acercan; positivos las separan; 0 no agrega separación. */
+  text-decoration: none; /* none elimina la decoración habitual del enlace; underline muestra un subrayado. */
+}
+
+/* Símbolo pequeño dentro de la marca. */
+.marca2 span {
+  font-size: 14px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  vertical-align: top; /* Alinea la parte superior del símbolo con la parte superior de su caja de línea. */
+  letter-spacing: 0; /* Separación adicional entre letras: valores negativos las acercan; positivos las separan; 0 no agrega separación. */
+}
+
+
+
+
+/* Contenedor de enlaces de navegación. */
+nav {
+  display: flex; /* flex organiza los hijos con Flexbox; grid crea una cuadrícula; block ocupa una caja de bloque; inline-block permite una caja dentro del flujo en línea. */
+  gap: 30px; /* Separación entre los elementos de un contenedor flex o grid. */
+  font-size: 14px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+}
+
+/* Enlaces de la navegación y del pie. */
+nav a, footer a {
+  text-decoration: none; /* none elimina la decoración habitual del enlace; underline muestra un subrayado. */
+}
+
+/* Esos enlaces cuando el puntero pasa sobre ellos. */
+nav a:hover, footer a:hover {
+  text-decoration: underline; /* none elimina la decoración habitual del enlace; underline muestra un subrayado. */
+}
+
+/* Sección introductoria. */
+.introduccion {
+  padding: 72px 0 82px; /* Espacio interior. Un valor: todos los lados; dos: arriba/abajo e izquierda/derecha; tres: arriba, izquierda/derecha y abajo. */
+}
+
+/* Textos pequeños de presentación de secciones. */
+.etiqueta {
+  text-align: center; /* CENTRA EL TEXTO. */
+  font-size: 11px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  letter-spacing: 2px; /* Separación adicional entre letras: valores negativos las acercan; positivos las separan; 0 no agrega separación. */
+  font-weight: bold; /* Grosor de letra: normal suele equivaler a 400, 500 es intermedio, bold suele equivaler a 700 y 900 es muy grueso; depende de las variantes disponibles. */
+
+}
+
+/* Título principal. */
+h1 {
+  text-align: center; /* CENTRA EL TEXTO. */
+  font-size: clamp(54px, 8vw, 67px); /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  letter-spacing: -1px; /* Separación adicional entre letras: valores negativos las acercan; positivos las separan; 0 no agrega separación. */
+  line-height: 1.02; /* Altura de cada línea como múltiplo del tamaño de letra, al no tener unidad. */
+  margin: 28px 0 35px; /* Espacio exterior. Un valor: todos los lados; dos: vertical y horizontal; tres: arriba, horizontal y abajo. auto centra horizontalmente cuando el ancho está limitado. */
+  font-weight: 500; /* Grosor de letra: normal suele equivaler a 400, 500 es intermedio, bold suele equivaler a 700 y 900 es muy grueso; depende de las variantes disponibles. */
+}
+
+/* Parte enfatizada del título principal. */
+h1 em {
+  font-family: Georgia, serif; /* Familias tipográficas en orden de preferencia; se usa la primera disponible. */
+  font-weight: normal; /* Grosor de letra: normal suele equivaler a 400, 500 es intermedio, bold suele equivaler a 700 y 900 es muy grueso; depende de las variantes disponibles. */
+}
+
+/* Contenedor del texto introductorio y su botón. */
+.presentacion {
+  display: flex; /* flex organiza los hijos con Flexbox; grid crea una cuadrícula; block ocupa una caja de bloque; inline-block permite una caja dentro del flujo en línea. */
+  align-items: center; /* Alineación en el eje transversal de Flexbox: center centra; end alinea al extremo final; flex-start alinea al inicio. Con dirección row el eje es vertical; con column es horizontal. */
+  justify-content: space-between; /* Distribuye los hijos en el eje principal; space-between coloca el primero y último en los extremos y reparte el espacio restante entre ellos. */
+  gap: 40px; /* Separación entre los elementos de un contenedor flex o grid. */
+}
+
+/* Párrafos dentro de la presentación. */
+.presentacion p {
+  max-width: 570px; /* Limita el ancho máximo del elemento para evitar líneas de texto demasiado largas. */
+  color: #a5a3a3; /* Color del texto. inherit toma el color del elemento padre; var(...) usa una variable. */
+}
+
+/* Enlace con apariencia de botón. */
+.boton {
+  background: var(--acento); /* Color de fondo; var(...) toma el valor de la variable indicada. */
+  padding: 15px 22px; /* Espacio interior. Un valor: todos los lados; dos: arriba/abajo e izquierda/derecha; tres: arriba, izquierda/derecha y abajo. */
+  border-radius: 30px; /* Redondea las esquinas de la caja. */
+  text-decoration: none; /* none elimina la decoración habitual del enlace; underline muestra un subrayado. */
+  white-space: nowrap; /* nowrap impide que el texto se divida en varias líneas. */
+}
+
+/* Símbolo dentro del botón. */
+.boton span {
+  margin-left: 20px; /* Espacio exterior a la izquierda, que separa este elemento del contenido anterior. */
+}
+
+/* Sección de la colección de obras. */
+.galeria {
+  border-top: 1px solid var(--linea); /* Línea divisoria superior de 1px, continua, con el color de --linea. */
+  padding: 36px 0 70px; /* Espacio interior. Un valor: todos los lados; dos: arriba/abajo e izquierda/derecha; tres: arriba, izquierda/derecha y abajo. */
+  scroll-margin-top: 25px; /* Deja esta distancia superior al desplazar el elemento a la vista mediante un ancla, como #galeria. */
+}
+
+/* Contenedor del título de la galería y su texto complementario. */
+.titulo-seccion {
+  display: flex; /* flex organiza los hijos con Flexbox; grid crea una cuadrícula; block ocupa una caja de bloque; inline-block permite una caja dentro del flujo en línea. */
+  align-items: end; /* Alineación en el eje transversal de Flexbox: center centra; end alinea al extremo final; flex-start alinea al inicio. Con dirección row el eje es vertical; con column es horizontal. */
+  justify-content: space-between; /* Distribuye los hijos en el eje principal; space-between coloca el primero y último en los extremos y reparte el espacio restante entre ellos. */
+  gap: 20px; /* Separación entre los elementos de un contenedor flex o grid. */
+  margin-bottom: 30px; /* Espacio exterior inferior, que separa el bloque del siguiente. */
+}
+
+/* Títulos de sección. */
+h2 {
+  font-size: clamp(25px, 3vw, 36px); /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  line-height: 1.2; /* Altura de cada línea como múltiplo del tamaño de letra, al no tener unidad. */
+  font-weight: 500; /* Grosor de letra: normal suele equivaler a 400, 500 es intermedio, bold suele equivaler a 700 y 900 es muy grueso; depende de las variantes disponibles. */
+  letter-spacing: -1px; /* Separación adicional entre letras: valores negativos las acercan; positivos las separan; 0 no agrega separación. */
+  margin: 10px 0; /* Espacio exterior. Un valor: todos los lados; dos: vertical y horizontal; tres: arriba, horizontal y abajo. auto centra horizontalmente cuando el ancho está limitado. */
+}
+
+/* Solo los párrafos hijos directos del encabezado de sección. */
+.titulo-seccion > p {
+  font-size: 12px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  color: #606459; /* Color del texto. inherit toma el color del elemento padre; var(...) usa una variable. */
+}
+
+/* Cuadrícula que contiene todas las tarjetas. */
+.tarjetas {
+  display: grid; /* flex organiza los hijos con Flexbox; grid crea una cuadrícula; block ocupa una caja de bloque; inline-block permite una caja dentro del flujo en línea. */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Define las columnas: repeat(3, minmax(0, 1fr)) crea tres iguales; repeat(2, minmax(0, 1fr)) crea dos; 1fr crea una. minmax permite reducirlas hasta cero sin imponer el ancho mínimo del contenido. */
+  gap: 26px; /* Separación entre los elementos de un contenedor flex o grid. */
+}
+
+/* Imágenes dentro de las tarjetas. */
+.tarjeta img {
+  width: 100%; /* Ancho del elemento. min(1180px, 90%) elige el menor entre 1180px y el 90% del contenedor; 100% ocupa su ancho disponible. */
+  aspect-ratio: 4 / 5; /* Mantiene una proporción de 4 de ancho por 5 de alto en la caja de la imagen. */
+  object-fit: cover; /* cover llena la caja sin deformar la imagen; puede recortar partes si sus proporciones son distintas. */
+  display: block; /* flex organiza los hijos con Flexbox; grid crea una cuadrícula; block ocupa una caja de bloque; inline-block permite una caja dentro del flujo en línea. */
+  border-radius: 8px; /* Redondea las esquinas de la caja. */
+ 
+}
+
+/* Texto con la categoría de cada obra. */
+.categoria {
+  font-size: 10px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  text-transform: uppercase; /* Muestra el texto en mayúsculas sin modificar el texto original del HTML. */
+  letter-spacing: 1.5px; /* Separación adicional entre letras: valores negativos las acercan; positivos las separan; 0 no agrega separación. */
+  margin: 18px 0 8px; /* Espacio exterior. Un valor: todos los lados; dos: vertical y horizontal; tres: arriba, horizontal y abajo. auto centra horizontalmente cuando el ancho está limitado. */
+  color: #606459; /* Color del texto. inherit toma el color del elemento padre; var(...) usa una variable. */
+}
+
+/* Título de cada tarjeta. */
+.tarjeta h3 {
+  font-size: 24px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  margin: 0 0 8px; /* Espacio exterior. Un valor: todos los lados; dos: vertical y horizontal; tres: arriba, horizontal y abajo. auto centra horizontalmente cuando el ancho está limitado. */
+  font-weight: 500; /* Grosor de letra: normal suele equivaler a 400, 500 es intermedio, bold suele equivaler a 700 y 900 es muy grueso; depende de las variantes disponibles. */
+}
+
+/* Descripción breve de cada tarjeta. */
+.descripcion {
+  color: #606459; /* Color del texto. inherit toma el color del elemento padre; var(...) usa una variable. */
+  font-size: 14px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  margin: 0 0 18px; /* Espacio exterior. Un valor: todos los lados; dos: vertical y horizontal; tres: arriba, horizontal y abajo. auto centra horizontalmente cuando el ancho está limitado. */
+}
+
+/* Enlace para entrar a la página de una obra. */
+.enlace-obra {
+  display: inline-block; /* flex organiza los hijos con Flexbox; grid crea una cuadrícula; block ocupa una caja de bloque; inline-block permite una caja dentro del flujo en línea. */
+  font-size: 13px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  text-underline-offset: 5px; /* Distancia entre el texto y su subrayado. */
+}
+
+/* Pie de página. */
+footer {
+  border-top: 1px solid var(--linea); /* Línea divisoria superior de 1px, continua, con el color de --linea. */
+  padding: 28px 0; /* Espacio interior. Un valor: todos los lados; dos: arriba/abajo e izquierda/derecha; tres: arriba, izquierda/derecha y abajo. */
+  display: flex; /* flex organiza los hijos con Flexbox; grid crea una cuadrícula; block ocupa una caja de bloque; inline-block permite una caja dentro del flujo en línea. */
+  justify-content: space-between; /* Distribuye los hijos en el eje principal; space-between coloca el primero y último en los extremos y reparte el espacio restante entre ellos. */
+  align-items: center; /* Alineación en el eje transversal de Flexbox: center centra; end alinea al extremo final; flex-start alinea al inicio. Con dirección row el eje es vertical; con column es horizontal. */
+  gap: 20px; /* Separación entre los elementos de un contenedor flex o grid. */
+  font-size: 12px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+}
+
+/* Contenedor de las páginas provisionales de obras. */
+.pendiente {
+  max-width: 700px; /* Limita el ancho máximo del elemento para evitar líneas de texto demasiado largas. */
+  padding: 70px 0; /* Espacio interior. Un valor: todos los lados; dos: arriba/abajo e izquierda/derecha; tres: arriba, izquierda/derecha y abajo. */
+}
+
+/* Título de las páginas provisionales. */
+.pendiente h1 {
+  font-size: 54px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  letter-spacing: -2px; /* Separación adicional entre letras: valores negativos las acercan; positivos las separan; 0 no agrega separación. */
+}
+
+/* Se aplica hasta 750px de ancho de ventana, inclusive; estas reglas posteriores sustituyen las propiedades coincidentes. */
+@media (max-width: 750px) {
+  /* Cuadrícula que contiene todas las tarjetas. */
+  .tarjetas {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Define las columnas: repeat(3, minmax(0, 1fr)) crea tres iguales; repeat(2, minmax(0, 1fr)) crea dos; 1fr crea una. minmax permite reducirlas hasta cero sin imponer el ancho mínimo del contenido. */
+  }
+
+  /* Presentación y encabezado de sección en pantallas pequeñas. */
+  .presentacion, .titulo-seccion {
+    align-items: flex-start; /* Alineación en el eje transversal de Flexbox: center centra; end alinea al extremo final; flex-start alinea al inicio. Con dirección row el eje es vertical; con column es horizontal. */
+    flex-direction: column; /* column apila los hijos verticalmente en vez de colocarlos en una fila. */
+    gap: 15px; /* Separación entre los elementos de un contenedor flex o grid. */
+  }
+
+  /* Sección introductoria. */
+  .introduccion {
+    padding: 45px 0; /* Espacio interior. Un valor: todos los lados; dos: arriba/abajo e izquierda/derecha; tres: arriba, izquierda/derecha y abajo. */
+  }
+
+  /* Título principal. */
+  h1 {
+    letter-spacing: -3px; /* Separación adicional entre letras: valores negativos las acercan; positivos las separan; 0 no agrega separación. */
+  }
+
+  /* Pie de página. */
+  footer {
+    flex-wrap: wrap; /* wrap permite que los elementos pasen a otra fila cuando no entran en la actual. */
+  }
+
+}
+
+/* Se aplica hasta 480px de ancho de ventana, inclusive; también siguen aplicándose las reglas de 750px. */
+@media (max-width: 480px) {
+  /* Cuadrícula que contiene todas las tarjetas. */
+  .tarjetas {
+    grid-template-columns: 1fr; /* Define las columnas: repeat(3, minmax(0, 1fr)) crea tres iguales; repeat(2, minmax(0, 1fr)) crea dos; 1fr crea una. minmax permite reducirlas hasta cero sin imponer el ancho mínimo del contenido. */
+  }
+
+  /* Contenedor de enlaces de navegación. */
+  nav {
+    gap: 14px; /* Separación entre los elementos de un contenedor flex o grid. */
+    font-size: 12px; /* Tamaño del texto. px fija un tamaño; clamp(mínimo, preferido, máximo) lo adapta sin salir de esos límites. vw equivale al 1% del ancho de la ventana. */
+  }
+
+}
+
+/* Se aplica si la persona configuró una preferencia por reducir las animaciones en su sistema o navegador. */
+@media (prefers-reduced-motion: reduce) {
+  /* Documento completo y comportamiento del desplazamiento. */
+  html {
+    scroll-behavior: auto; /* smooth suaviza los saltos a secciones; auto usa el desplazamiento habitual sin esa animación CSS. */
+  }
+
+}
+
+
+/* ===== INTERACTIVIDAD: valores fáciles de personalizar ===== */
+:root {
+  --imagen-fondo: url("../imagenes/fondo2.svg"); /* Reemplazá por fondo.jpg. Ruta desde este CSS. */
+  --oscuridad-fondo: 0.30; /* JavaScript la aumenta hasta 0.85 al llegar abajo. */
+  --zoom-tarjeta: 1.07; /* 1 = tamaño original; 1.07 = aumento del 7%. */
+}
+
+.pagina-galeria { isolation: isolate; } /* Mantiene el fondo detrás del contenido. */
+.fondo-pantalla {
+  position: fixed; /* La imagen permanece fija mientras baja el contenido. */
+  inset: 0; /* Cubre toda la ventana. */
+  z-index: -1; /* Detrás del texto, dentro del contexto de la página. */
+  pointer-events: none; /* El fondo no intercepta clics. */
+  background: var(--fondo) var(--imagen-fondo) center / cover no-repeat;
+}
+.fondo-pantalla::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: var(--oscuridad-fondo); /* Solo se oscurece el fondo, no las obras. */
+}
+
+
+/* ===== PARA OTRO FONDO ===== */
+
+:root {
+  --imagen-fondo2: url("../imagenes/bgObra.svg"); /* Reemplazá por fondo.jpg. Ruta desde este CSS. */
+  --oscuridad-fondo2: 0.30; /* JavaScript la aumenta hasta 0.85 al llegar abajo. */
+  --zoom-tarjeta: 1.07; /* 1 = tamaño original; 1.07 = aumento del 7%. */
+}
+
+.pagina-galeria2 { isolation: isolate; } /* Mantiene el fondo detrás del contenido. */
+.fondo-pantalla2 {
+  position: fixed; /* La imagen permanece fija mientras baja el contenido. */
+  inset: 0; /* Cubre toda la ventana. */
+  z-index: -1; /* Detrás del texto, dentro del contexto de la página. */
+  pointer-events: none; /* El fondo no intercepta clics. */
+  background: var(--fondo) var(--imagen-fondo2) center / cover no-repeat;
+}
+.fondo-pantalla2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: var(--oscuridad-fondo2); /* Solo se oscurece el fondo, no las obras. */
+}
+
+
+
+
+
+
+
+.marca-logo { display: inline-flex; align-items: flex-start; flex-shrink: 0; }
+.marca-logo img { display: block; width: 120px; height: auto; }
+.imagen-obra {
+  display: block;
+  overflow: hidden; /* Recorta el zoom para que no invada otras tarjetas. */
+  border-radius: 8px;
+}
+.imagen-obra img { transition: transform 350ms ease; }
+.imagen-obra:focus-visible img { transform: scale(var(--zoom-tarjeta)); }
+nav a, footer a, .enlace-obra {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  transition: transform 180ms ease, color 180ms ease;
+}
+nav a::after, footer a::after, .enlace-obra::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+nav a:focus-visible::after, footer a:focus-visible::after, .enlace-obra:focus-visible::after { transform: scaleX(1); }
+.boton { display: inline-block; transition: transform 220ms ease, box-shadow 220ms ease; }
+.boton span { display: inline-block; transition: transform 220ms ease; }
+.boton:focus-visible { transform: translateY(-3px); box-shadow: 0 8px 24px #0005; }
+/* Textos secundarios legibles sobre el fondo oscuro. */
+.pagina-galeria .descripcion, .pagina-galeria .categoria,
+.pagina-galeria .titulo-seccion > p, .pagina-galeria .presentacion p { color: #c4cddd; }
+@media (hover: hover) {
+  .imagen-obra:hover img { transform: scale(var(--zoom-tarjeta)); }
+  nav a:hover, footer a:hover, .enlace-obra:hover { transform: translateY(-2px); text-decoration: none; }
+  nav a:hover::after, footer a:hover::after, .enlace-obra:hover::after { transform: scaleX(1); }
+  .boton:hover { transform: translateY(-3px); box-shadow: 0 8px 24px #0005; }
+  .boton:hover span { transform: translateY(3px); }
+}
+@media (max-width: 480px) {
+  .cabecera { flex-wrap: wrap; padding: 18px 0; gap: 16px; }
+  .pagina-galeria h1 { font-size: clamp(32px, 9vw, 54px); letter-spacing: -1px; overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .imagen-obra img, nav a, footer a, .enlace-obra, .boton, .boton span,
+  nav a::after, footer a::after, .enlace-obra::after { transition: none; }
+  .imagen-obra:hover img, .imagen-obra:focus-visible img,
+  nav a:hover, footer a:hover, .enlace-obra:hover,
+  .boton:hover, .boton:focus-visible, .boton:hover span { transform: none; }
+}
+
+
+
+/* Para agregar imagenes */
+
+
+.galeria-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  /* Centra las imágenes horizontalmente */
+  gap: 16px;                /* Espacio entre imágenes */
+}
+
+/* PARA DIFERENTES TIPOS DE TAMAÑO*/
+
+.galeria-horizontal img {
+  width: 350px;
+  height: auto;
+  object-fit: cover;
+}
+
+
+
+
+
+
+/* OTRO TIPO DE TAMAÑO*/
+
+.galeria-horizontalB {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Tamaño general de las imágenes */
+.galeria-horizontalB img {
+  width: 350px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Tamaño de la imagen elegida */
+.galeria-horizontalB img.imagen-grande {
+  width: 450px;
+}
+/*------------------------------------------*/
+
+
+
+
+
+.galeria-horizontal2 img {
+  width: 596px;
+  height: auto;
+  object-fit: cover;
+}
+
+.galeria-horizontal3 img {
+  width: 3px; /* Solo esta imagen será más grande */
+}
+
+
+
+
+.contenedor {
+  text-align: right;
+}
+
+
+
+/* HACER QUE LAS IMAGENES ESTEN A LA IZQUIERDA DE LA PANTALLA*/
+
+
+.img-derecha {
+  display: block;
+  margin-left: auto; /* Empuja hacia la derecha */
+  margin-right: 0;
+}
+
+.img-izq {
+  display: block;
+  margin-left: 0; /* Empuja hacia la derecha */
+  margin-right: auto;
+}
+
+
+
+
+/* PARA CENTRAR */
+
+.caja {
+  text-align: center;
+}
+
+
+/* PARA CAMBIAR TAMAÑO IMAGENES */
+
+
+
+
+
+
+
+
+
+
+/* ESTILOS DE FUENTES PERSONALIZADAS */
+
+/* di1 */
+.SANS {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* di2 */
+.zeyada {
+  font-family: "Zeyada", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* di3 */
+.redactionregular {
+  font-family: "Redaction 50", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.redactionbold {
+  font-family: "Redaction 50", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.redactionitalic {
+  font-family: "Redaction 50", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*FLECHITAS
+
+
+/* Centra la flecha y la separa de las imágenes de la obra */
+.siguiente-pagina {
+  display: block;
+  width: fit-content;
+  margin: 40px auto;
+}
+
+/* Define el tamaño de la flecha y suaviza su movimiento */
+.siguiente-pagina img {
+  display: block;
+  width: 70px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+/* Mueve ligeramente la flecha al pasar el cursor o usar el teclado */
+.siguiente-pagina:hover img,
+.siguiente-pagina:focus-visible img {
+  transform: translateX(6px);
+}
+
+
+
+
+
+
+
+/* Centra la flecha y la separa de las imágenes de la obra */
+.anterior-pagina {
+  display: block;
+  width: 1855px;
+  margin: 40px auto;
+}
+
+/* Define el tamaño de la flecha y suaviza su movimiento */
+.anterior-pagina img {
+  display: block;
+  width: 70px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+/* Mueve ligeramente la flecha al pasar el cursor o usar el teclado */
+.anterior-pagina:hover img,
+.anterior-pagina:focus-visible img {
+  transform: translateX(-6px);
+}

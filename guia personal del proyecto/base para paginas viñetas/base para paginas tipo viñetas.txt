@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Horizonte suave · Página 2 — GARABAX-SIDE</title>
+
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/lector.css">
+</head>
+
+<body class="pagina-obra" id="arriba">
+
+  <header class="lector-cabecera">
+    <a href="../index.html" aria-label="GARABAX-SIDE, inicio">
+      <img
+        class="lector-logo"
+        src="../imagenes/logo.svg"
+        alt="GARABAX-SIDE"
+        width="120"
+      >
+    </a>
+ </header>
+    <p>
+      <a href="../index.html#galeria">
+        ← Vver a Universos por descubrir
+      </a>
+    </p>
+ 
+
+  <main class="lector">
+
+    <section class="lector-presentacion" aria-labelledby="titulo-obra">
+      <p class="etiqueta">UNIVERSOS POR DESCUBRIR</p>
+      <h1 id="titulo-obra">Horizonte suave</h1>
+      <p class="lector-indicador">Página 2 de 2</p>
+    </section>
+
+    <section
+      class="lector-vinetas"
+      aria-label="Viñetas de la página 2"
+    >
+      <figure class="lector-vineta">
+        <img
+          src="../imagenes/horizonte.svg"
+          alt="Imagen provisional para la cuarta viñeta"
+        >
+      </figure>
+
+      <figure class="lector-vineta">
+        <img
+          src="../imagenes/horizonte.svg"
+          alt="Imagen provisional para la quinta viñeta"
+          loading="lazy"
+        >
+      </figure>
+    </section>
+
+    <nav class="lector-paginacion" aria-label="Páginas de Horizonte suave">
+      <a class="lector-numero" href="horizonte.html" rel="prev">
+        ← Página 1
+      </a>
+
+      <span class="lector-numero" aria-current="page">Página 2</span>
+    </nav>
+
+    <p>Fin del contenido disponible por ahora.</p>
+
+  </main>
+
+  <footer class="lector-pie">
+    <a href="../index.html#galeria">Volver a la colección</a>
+    <a href="#arriba">Volver arriba ↑</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+DEFINICIONES DE CLASES
+
+se asignan mediante corchetes "{"
+
+ej:
+
+CLASES PARA UTILIZAR FLECHAS EN ESTRUCTURA HTML
+
+en css (asignación de clase):
+
+DEFINICION DE FUENTES
+
+.SANS {
+  font-family: "Libertinus Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+en HTML (llamar a las clases)
+
+      <element class="SANS">
+        <p class="etiqueta"><h1 id="titulo-obra">EL ARTE DE YARE DEVILS</h1></p>
+      </element>

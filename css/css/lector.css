@@ -1,0 +1,164 @@
+/* Estos estilos se aplican a las páginas con class="pagina-obra". */
+.pagina-obra {
+  background: #f6f4ed;
+  color: #242720;
+}
+
+/* Cabecera: logo y enlace de regreso. */
+.pagina-obra .lector-cabecera {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 24px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  border-bottom: 1px solid #d3d5ca;
+}
+
+
+
+
+
+/* Tamaño del logo, sin deformarlo. */
+.pagina-obra .lector-logo {
+  display: block;
+  width: 120px;
+  height: auto;
+}
+
+/* Ancho general del área de lectura. */
+.pagina-obra .lector {
+  width: min(850px, 92%);
+  margin: 0 auto;
+}
+
+/* Presentación centrada. */
+.pagina-obra .lector-presentacion {
+  padding: 64px 0 48px;
+  text-align: center;
+}
+
+/* Título adaptable a computadora y celular. */
+.pagina-obra .lector-presentacion h1 {
+  margin: 20px 0;
+  font-size: clamp(36px, 7vw, 76px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+  overflow-wrap: anywhere;
+}
+
+/* Indicador de página actual. */
+.pagina-obra .lector-indicador {
+  color: #606459;
+  font-size: 14px;
+}
+
+/* Una sola columna de imágenes. */
+.pagina-obra .lector-vinetas {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  scroll-margin-top: 20px;
+}
+
+/* Elimina el margen que figure trae por defecto. */
+.pagina-obra .lector-vineta {
+  margin: 0;
+}
+
+/* Muestra cada imagen completa y conserva sus proporciones. */
+.pagina-obra .lector-vineta img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Texto opcional debajo de las imágenes. */
+.pagina-obra .lector-vineta figcaption {
+  padding: 10px 0;
+  color: #606459;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Enlaces para cambiar de página. */
+.pagina-obra .lector-paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 40px;
+  padding: 28px 0;
+  border-top: 1px solid #d3d5ca;
+  font-size: 14px;
+}
+
+.pagina-obra .lector-paginacion a,
+.pagina-obra .lector-numero {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid #d3d5ca;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* Destaca la página que se está leyendo. */
+.pagina-obra .lector-numero[aria-current="page"] {
+  background: #242720;
+  border-color: #242720;
+  color: white;
+}
+
+/* Destaca el enlace para continuar. */
+.pagina-obra .lector-paginacion .lector-siguiente {
+  background: #d8fc70;
+  color: #242720;
+}
+
+.pagina-obra .lector-paginacion a:hover {
+  border-color: #242720;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Pie de la obra. */
+.pagina-obra .lector-pie {
+  width: min(850px, 92%);
+  margin: 0 auto;
+  padding: 24px 0 40px;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .pagina-obra .lector-presentacion {
+    padding: 40px 0 32px;
+  }
+
+  .pagina-obra .lector-vinetas {
+    gap: 16px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
